@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQLite Query Executor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>SQLite Query Executor</h1>
+
+      <div class="input-container">
+        <textarea
+          id="query-input"
+          placeholder="Enter SQL Query"
+          value="SELECT * FROM boeken;"
+        >
+SELECT * FROM boeken;</textarea
+        >
+        <div id="query-buttons">
+          <div class="checkbox-container">
+            <label for="json-toggle">JSON</label>
+            <input
+              type="checkbox"
+              id="json-toggle"
+              checked
+              onchange="toggleManipulatedText()"
+            />
+          </div>
+
+          <div style="flex-grow: 1"></div>
+
+          <button onclick="executeQuery()">Execute</button>
+        </div>
+      </div>
+
+      <h3>Results <span id="manipulated-label">(manipulated)</span></h3>
+      <div class="result-container">
+        <pre id="results"></pre>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+    <script src="db.js"></script>
+    <script src="manipulate.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
