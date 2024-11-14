@@ -17,6 +17,5 @@ jobs:
           port: ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "app/"
-          remote_path: "query-executor/"
-          sftp_only: true
+          local_path: "./app/*"
+          remote_path: "./webroots/72af34e8/query-executor"
