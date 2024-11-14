@@ -105,3 +105,8 @@ button:hover {
     color: #ff0e0e;
     font-weight: lighter;
 }
+
+#github-logo {
+    height: 24px;
+    vertical-align: baseline;
+}
