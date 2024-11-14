@@ -1,8 +1,6 @@
 function executeQuery() {
     document.getElementById('results').innerHTML = "Executing...";
-
-    const query = document.getElementById('query-input').innerHTML;
-    const jsonToggle = document.getElementById('json-toggle').checked;
+    const query = document.getElementById('query-input').value;
 
     if (!query) {
         alert("Please enter a SQL query.");
@@ -17,7 +15,9 @@ function executeQuery() {
     try {
         const result = db.exec(query);
 
-        if (jsonToggle) {
+        const jsonToggle = document.getElementById('json-toggle');
+
+        if (jsonToggle.checked) {
             const formattedResult = formatResultToObject(result);
             const manipulatedResult = manipulate(formattedResult);
             displayJsonResults(manipulatedResult);
@@ -39,9 +39,7 @@ function formatResultToObject(result) {
 
     return rows.map(row => {
         let obj = {};
-        columns.forEach((column, index) => {
-            obj[column] = row[index];
-        });
+        columns.forEach((column, index) => { obj[column] = row[index]; });
         return obj;
     });
 }
@@ -65,7 +63,6 @@ function displayRawResults(data) {
         return;
     }
 
-
     let output = data[0].columns.join(' | ') + "\n";
     for (const row of result) output += row.join(' | ') + "\n";
     resultsElement.textContent = output;
@@ -76,8 +73,7 @@ function displayError(message) {
 }
 
 function toggleManipulatedText() {
-    const jsonToggle = document.getElementById('json-toggle');
     const manipulatedLabel = document.getElementById('manipulated-label');
-
-    manipulatedLabel.innerHTML = jsonToggle.checked ? "(manipulated) " : "";
+    const jsonToggle = document.getElementById('json-toggle');
+    manipulatedLabel.innerHTML = jsonToggle.checked ? "(manipulated)" : "";
 }
