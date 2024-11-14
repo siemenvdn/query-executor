@@ -8,4 +8,4 @@ You can use the `manipulate.js` folder to access and manipulate the received dat
 
 ## ERD
 
-![ERD Scheme](img/erd.svg)
+![ERD Scheme](erd.svg)
