@@ -1,7 +1,6 @@
 let db;
 
 const initQuery = `
--- Maak de tabellen aan voor SQLite
 CREATE TABLE boeken (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titel TEXT NOT NULL,
@@ -28,7 +27,6 @@ CREATE TABLE leningen (
     FOREIGN KEY (boek_id) REFERENCES boeken(boek_id)
 );
 
--- Voeg fictieve boeken toe
 INSERT INTO boeken (titel, auteur, publicatie_jaar, genre) VALUES
 ('De Vlam van Eldoria', 'Sophie Vermilion', 2023, 'Fantasie'),
 ('Schaduw van de Ochtendzon', 'Thijs van der Linden', 2022, 'Thriller'),
@@ -44,7 +42,6 @@ INSERT INTO boeken (titel, auteur, publicatie_jaar, genre) VALUES
 ('De Witte Herder', 'Henk Klaassen', 2023, 'Fantasie'),
 ('De Geluiden van de Nacht', 'Nina van Dijk', 2022, 'Horror');
 
--- Voeg denkbeeldige leden toe
 INSERT INTO leden (voornaam, achternaam, email) VALUES
 ('Jan', 'Jansen', 'jan.jansen@example.com'),
 ('Emma', 'de Vries', 'emma.devries@example.com'),
@@ -52,7 +49,6 @@ INSERT INTO leden (voornaam, achternaam, email) VALUES
 ('Sophie', 'Willems', 'sophie.willems@example.com'),
 ('Mark', 'Smit', 'mark.smit@example.com');
 
--- Voeg denkbeeldige leningen toe
 INSERT INTO leningen (lid_id, boek_id, leen_datum, inlever_datum, terug_datum) VALUES
 (1, 1, '2024-10-01', '2024-10-15', '2024-10-14'),
 (1, 2, '2024-10-05', '2024-10-19', '2024-10-18'),
