@@ -1,0 +1,23 @@
+Table book {
+  id int [pk]
+  title varchar(255) [not null]
+  author varchar(255) [not null]
+  publication_year int
+  genre varchar(100)
+}
+
+Table member {
+  id int [pk]
+  first_name varchar(100) [not null]
+  last_name varchar(100) [not null]
+  email varchar(255) [unique, not null]
+}
+
+Table reservation {
+  id int [pk]
+  member_id int [ref: > member.id, not null]
+  book_id int [ref: > book.id, not null]
+  reservation_date timestamp [not null]
+  return_date timestamp
+  due_date timestamp [not null]
+}
